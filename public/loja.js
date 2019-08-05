@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $network = "undefined";
     $data = 
     {
     teste: "teste de mustache",
@@ -7,30 +8,45 @@ $(document).ready(function () {
 
     $('#getLojas').click(function (e) { 
         e.preventDefault();
+        
+            if ($network == "undefined"){
 
-        $.ajax({
-            dataType:"json",
-            type: "GET",
-            url: "http://localhost/code/loja",
-            data: "",
-            success: function (data) {
-                console.log(data);
-            //     if ($('#listaLojas').text("")){
-            //     $.each(data, function(i, loja) {
-            //         $('#listaLojas').append("<tbody><tr><td>"+loja[i].id+"</td>"+"<td>"+loja[i].nome+"</td>"+
-            //         "<td>"+loja[i].endereco+"</td>"+"<td>"+loja[i].telefone+"</td></tr></tbody>");
-            //     });
-            // }
-            $('#listaLojas').append('<h1> teste </h1>');
-            },
-            error: function (data) {
-                alert('Erro na requisicao');
-                // em caso de erro...
-            },
-            complete: function(){
-               
+                
+            $.ajax({
+                dataType:"json",
+                type: "GET",
+                url: "http://localhost/code/loja",
+                data: "",
+                success: function (data) {
+                    console.log(data);
+                    lojas = data;
+                    $network = data;
+                    if ($('.table').text("")){
+                    $.each(lojas,function(i, loja){
+                    $('.table').append("<tbody><tr><td>"
+                    +lojas[i].id+"</td><td>"+lojas[i].nome+"</td><td>"+lojas[i].telefone+
+                    "</td><td>"+lojas[i].endereco+"</td></tr></tbody>");
+                    });
+                    $('.table').prepend('<thead><tr>'+
+                      '<th scope="col">ID</th>'+
+                      '<th scope="col">NOME</th>'+
+                      '<th scope="col">TELEFONE</th>'+
+                      '<th scope="col">ENDERECO</th>'+
+                     '</tr></thead>');
+                    }
+
+                }
+                ,
+                error: function (data) {
+                    alert('Erro na requisicao');
+                    // em caso de erro...
+                },
+                complete: function(){
+                
+                }
+                
+            });
             }
-        });  
     });
     $('#getProdutos').click(function (e) { 
         e.preventDefault();

@@ -223,7 +223,7 @@ $app->get('/hellow/{name}', function ($request, $response, $args) {
 $app->get('/lojas', function (Request $request, Response $response) {
     $loader = new  Mustache_Loader_FilesystemLoader
     ('../src/View',['extension' => '.html']);
-    $result = $loader->load('home');
+    $result = $loader->load('lojas');
     $o_mustache = new Mustache_Engine();
     $template = $o_mustache->render($result);
     
