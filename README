@@ -1,0 +1,17 @@
+Hello guys !
+
+This is a Application using PHP with Slim Framework
+Here you find: XAMPP, PHP, Composer, Slim, POO, PDO, MySql, Mustache, Html, Css, Javascript, Jquery, Bootstrap.
+
+Step by Step to use this application:
+
+1. XAMPP Version: 3.2.4 or newer - Download at: https://www.apachefriends.org/pt_br/download.html  
+2. PHP 7.2.19 or newer 
+3. Composer - Download at: https://getcomposer.org/Composer-Setup.exe 
+4. Serve the extracted folder in your htdocs
+5. Open the folder on your Visual Studio Code or your favorite IDE.
+6. Open the terminal on the location of your project and type: composer install
+7. Configure your DataBase with the file "criaBanco.sql"
+8. On the file routes.php you have access to all routes created.
+
+Enjoy!! Feel free to look and use it.
